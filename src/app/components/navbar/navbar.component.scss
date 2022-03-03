@@ -1,9 +1,7 @@
-.spacer {
-  flex: 1;
-}
-
 .toolbar {
-  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   letter-spacing: 0px;
   color: #080808;
   position: absolute;
@@ -11,21 +9,22 @@
   left: 0;
   right: 0;
   height: 60px;
+  min-width: 650px;
   display: flex;
   align-items: center;
   background-color: #f5f5f5;
-  color: white;
-  font-weight: 600;
+  color: #a7a7a7;
   box-shadow: 0px 3px 6px #00000029;
 
   a {
-    padding: 0 15px 0 15px;
+    margin: 0 25px;
     text-decoration: none;
+    color: #a7a7a7;
   }
 }
 
 .toolbar img {
-  margin: 0 16px;
+  margin: 0 30px;
 }
 
 .toolbar #twitter-logo {
