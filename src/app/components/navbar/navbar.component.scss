@@ -1,0 +1,44 @@
+.spacer {
+  flex: 1;
+}
+
+.toolbar {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0px;
+  color: #080808;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0px 3px 6px #00000029;
+
+  a {
+    padding: 0 15px 0 15px;
+    text-decoration: none;
+  }
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+.toolbar #twitter-logo {
+  height: 40px;
+  margin: 0 8px;
+}
+
+.toolbar #youtube-logo {
+  height: 40px;
+  margin: 0 16px;
+}
+
+.toolbar #twitter-logo:hover,
+.toolbar #youtube-logo:hover {
+  opacity: 0.8;
+}
