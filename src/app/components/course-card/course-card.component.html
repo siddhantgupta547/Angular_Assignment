@@ -1,3 +1,47 @@
 <div class="course-card">
-  <p>{{ course.title }}</p>
+  <div class="first">
+    <div class="thumbnail"></div>
+    <div class="desc">
+      <div class="desc-top">
+        {{ course.description.substring(0, 50) }}
+      </div>
+      <div class="desc-bottom">
+        <span class="tags" *ngFor="let tag of course.tags"
+          >{{ tag.substring(0, 5) }}&nbsp;</span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="second">
+    <span>{{ course.author }}</span>
+  </div>
+  <div class="third">
+    <ng-container>
+      <a href="#">
+        <img src="../../../assets/icons/star.svg" />
+      </a>
+    </ng-container>
+    <div class="price">
+      <span
+        >Rs{{
+          course.discountedPrice ? course.discountedPrice : course.actualPrice
+        }}/-</span
+      >
+    </div>
+    <div class="discounted-price">
+      <s>
+        Rs{{
+          course.discountedPrice ? course.discountedPrice : course.actualPrice
+        }}/-
+      </s>
+    </div>
+  </div>
+  <div class="fourth">
+    <button class="btn btn-primary text-white fw-semi-bold">ADD TO CART</button>
+    <div class="details-button">
+      <a href="#">
+        <img src="../../../assets/icons/arrow.svg" alt="" />
+      </a>
+    </div>
+  </div>
 </div>
