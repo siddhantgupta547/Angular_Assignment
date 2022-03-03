@@ -1,0 +1,16 @@
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 111px;
+  background-color: #0f1317;
+  border-radius: 4px;
+  opacity: 1;
+  color: white;
+  font-weight: 400;
+
+  & .left {
+    padding: 3.5% 2%;
+  }
+}

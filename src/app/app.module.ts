@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContainerComponent } from './components/container/container.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 const routes = [
   { path: 'courses', component: AppComponent },
@@ -14,7 +15,7 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, ContainerComponent],
+  declarations: [AppComponent, NavbarComponent, ContainerComponent, BannerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
