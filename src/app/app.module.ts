@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ContainerComponent } from './components/container/container.component';
 
 const routes = [
   { path: 'courses', component: AppComponent },
@@ -13,7 +14,7 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent, NavbarComponent, ContainerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
