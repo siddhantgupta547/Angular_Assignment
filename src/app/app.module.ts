@@ -10,6 +10,7 @@ import { ContainerComponent } from './components/container/container.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CourseComponentComponent } from './components/course-component/course-component.component';
 import { CourseCardComponent } from './components/course-card/course-card.component';
+import { DataService } from './services/dataService';
 
 const routes = [
   { path: 'courses', component: AppComponent },
@@ -31,7 +32,7 @@ const routes = [
     FormsModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
