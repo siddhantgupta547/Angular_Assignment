@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContainerComponent } from './components/container/container.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CourseComponentComponent } from './components/course-component/course-component.component';
+import { CourseCardComponent } from './components/course-card/course-card.component';
 
 const routes = [
   { path: 'courses', component: AppComponent },
@@ -22,6 +23,7 @@ const routes = [
     ContainerComponent,
     BannerComponent,
     CourseComponentComponent,
+    CourseCardComponent,
   ],
   imports: [
     BrowserModule,
