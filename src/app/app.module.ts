@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContainerComponent } from './components/container/container.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { CourseComponentComponent } from './components/course-component/course-component.component';
 
 const routes = [
   { path: 'courses', component: AppComponent },
@@ -15,7 +16,13 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, ContainerComponent, BannerComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    ContainerComponent,
+    BannerComponent,
+    CourseComponentComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
