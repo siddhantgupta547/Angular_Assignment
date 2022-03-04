@@ -11,6 +11,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { CourseComponentComponent } from './components/course-component/course-component.component';
 import { CourseCardComponent } from './components/course-card/course-card.component';
 import { DataService } from './services/dataService';
+import { ComponentHeaderComponent } from './components/component-header/component-header.component';
 
 const routes = [
   { path: 'courses', component: AppComponent },
@@ -25,6 +26,7 @@ const routes = [
     BannerComponent,
     CourseComponentComponent,
     CourseCardComponent,
+    ComponentHeaderComponent,
   ],
   imports: [
     BrowserModule,

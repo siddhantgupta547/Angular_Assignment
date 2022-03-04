@@ -1,6 +1,7 @@
 <div class="banner-containee">
   <app-banner [bannerValue]="'Discover Latest Courses on Angular'"></app-banner>
 </div>
+<app-component-header></app-component-header>
 <div class="course-container">
   <app-course-card
     *ngFor="let course of paginatedCourses"
