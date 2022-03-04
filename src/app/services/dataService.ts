@@ -2,11 +2,10 @@ import { OnInit, Injectable } from '@angular/core';
 
 export class DataService {
   paginatedCourses: any;
+  wishListedCourses: any;
   total = 0;
-  totalPages = 0;
   currentPage = 1;
   paginatedCoursesForPage = [];
-  wishListedCourses: any;
 
   constructor() {}
 
