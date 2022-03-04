@@ -1,7 +1,30 @@
 <div class="banner-containee">
   <app-banner [bannerValue]="'Discover Latest Courses on Angular'"></app-banner>
 </div>
-<app-component-header></app-component-header>
+<div class="component-header">
+  <div class="left">
+    <p>All Courses</p>
+    <select
+      name="character-side"
+      id="character-side"
+      (click)="onSelect($event)"
+    >
+      <option value="">Course Price</option>
+      <option value="asc">Low To High</option>
+      <option value="desc">High To Low</option>
+    </select>
+  </div>
+  <div class="right">
+    <form>
+      <div class="search">
+        <input type="text" />
+      </div>
+      <button class="search-icon" type="submit">
+        <span class="material-icons-outlined"> search </span>
+      </button>
+    </form>
+  </div>
+</div>
 <div class="course-container">
   <app-course-card
     *ngFor="let course of paginatedCourses"

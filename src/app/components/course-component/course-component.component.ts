@@ -44,4 +44,15 @@ export class CourseComponentComponent implements OnInit {
     this.paginatedCourses = this.dataService.onPageClick(this.currentPage);
     e.preventDefault();
   }
+
+  /*------------*/
+  onSelect(e: any) {
+    console.log(e.target.value);
+    const value = e.target.value;
+    if (value === '') return;
+    else if (value === 'asc')
+      this.paginatedCourses = this.dataService.sortPriceAsc();
+    else if (value === 'desc')
+      this.paginatedCourses = this.dataService.sortPriceDesc();
+  }
 }
