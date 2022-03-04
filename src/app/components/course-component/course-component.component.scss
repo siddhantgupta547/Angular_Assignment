@@ -1,7 +1,14 @@
 .course-container {
   position: relative;
   top: 25px;
-  //border: 1px solid black;
-  height: 70vh;
-  width: 73%;
+  border: 1px solid black;
+  height: 560px; //70vh;
+  width: 900px;
+  min-width: 650px;
+
+  nav {
+    position: inherit;
+    top: 20px;
+    margin: 10px;
+  }
 }

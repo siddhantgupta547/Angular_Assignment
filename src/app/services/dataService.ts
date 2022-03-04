@@ -195,7 +195,6 @@ export class DataService {
   }
 
   getCourse(page: any) {
-    console.log(this.paginatedCourses[page + 1], this.paginatedCourses);
     return this.paginatedCourses[page - 1];
   }
 }

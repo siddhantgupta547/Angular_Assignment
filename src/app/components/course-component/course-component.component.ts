@@ -12,6 +12,7 @@ export class CourseComponentComponent implements OnInit {
   totalPages = 0;
   currentPage = 1;
   paginatedCourses = [];
+  allPaginatedCourses = [];
 
   constructor(dataService: DataService) {
     this.dataService = dataService;
@@ -20,13 +21,17 @@ export class CourseComponentComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.paginateCoursesMethod();
     this.totalPages = this.dataService.total;
-    this.paginatedCourses = this.dataService.getCourse(this.currentPage);
+    this.paginatedCourses = this.dataService
+      .getCourse(this.currentPage)
+      .slice();
+    this.allPaginatedCourses = this.dataService.paginatedCourses.slice();
   }
 
   onNext() {
     if (this.currentPage === this.totalPages) return;
     this.currentPage += 1;
     this.paginatedCourses = this.dataService.getCourse(this.currentPage);
+    console.log(this.currentPage);
   }
 
   onPrev() {
@@ -37,6 +42,8 @@ export class CourseComponentComponent implements OnInit {
 
   onPageClick(e: any) {
     this.currentPage = e.target.innerText;
+    this.paginatedCourses = this.dataService.getCourse(this.currentPage);
     console.log(this.currentPage);
+    e.preventDefault();
   }
 }

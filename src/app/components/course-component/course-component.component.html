@@ -3,18 +3,18 @@
     *ngFor="let course of paginatedCourses"
     [course]="course"
   ></app-course-card>
-  <!-- <nav aria-label="...">
+  <nav aria-label="...">
     <ul class="pagination">
       <li
         class="page-item"
-        [ngClass]="currentPage === 1 ? 'disabled' : ''"
+        [ngClass]="currentPage == 1 ? 'disabled' : ''"
         (click)="onPrev()"
       >
         <a class="page-link">Previous</a>
       </li>
       <li
         class="page-item"
-        *ngFor="let page of paginatedCourses; let i = index"
+        *ngFor="let page of allPaginatedCourses; let i = index"
         value="{{ i + 1 }}"
         (click)="onPageClick($event)"
       >
@@ -22,11 +22,11 @@
       </li>
       <li
         class="page-item"
-        [ngClass]="currentPage === totalPages ? 'disabled' : ''"
+        [ngClass]="currentPage == totalPages ? 'disabled' : ''"
         (click)="onNext()"
       >
         <a class="page-link">Next</a>
       </li>
     </ul>
-  </nav> -->
+  </nav>
 </div>
