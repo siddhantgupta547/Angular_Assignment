@@ -9,6 +9,14 @@
         class="page-item"
         [ngClass]="currentPage == 1 ? 'disabled' : ''"
         (click)="onPrev()"
+        *ngIf="currentPage !== 1"
+      >
+        <a class="page-link">Previous</a>
+      </li>
+      <li
+        class="page-item"
+        [ngClass]="currentPage == 1 ? 'disabled' : ''"
+        *ngIf="currentPage === 1"
       >
         <a class="page-link">Previous</a>
       </li>
@@ -22,8 +30,16 @@
       </li>
       <li
         class="page-item"
-        [ngClass]="currentPage == totalPages ? 'disabled' : ''"
+        [ngClass]="currentPage === totalPages ? 'disabled' : ''"
         (click)="onNext()"
+        *ngIf="currentPage !== totalPages"
+      >
+        <a class="page-link">Next</a>
+      </li>
+      <li
+        class="page-item"
+        [ngClass]="currentPage === totalPages ? 'disabled' : ''"
+        *ngIf="currentPage === totalPages"
       >
         <a class="page-link">Next</a>
       </li>

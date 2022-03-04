@@ -3,6 +3,9 @@ import { newArray } from '@angular/compiler/src/util';
 export class DataService {
   paginatedCourses: any;
   total = 0;
+  totalPages = 0;
+  currentPage = 1;
+  paginatedCoursesForPage = [];
 
   paginateCoursesMethod() {
     const courses = [
@@ -190,11 +193,28 @@ export class DataService {
       }
       paginatedCourse.push(newArray);
     }
-    console.log(paginatedCourse);
     this.paginatedCourses = paginatedCourse;
   }
 
   getCourse(page: any) {
     return this.paginatedCourses[page - 1];
+  }
+
+  onNext() {
+    this.currentPage += 1;
+    this.paginatedCoursesForPage = this.getCourse(this.currentPage);
+    return this.paginatedCoursesForPage.slice();
+  }
+
+  onPrev() {
+    this.currentPage -= 1;
+    this.paginatedCoursesForPage = this.getCourse(this.currentPage);
+    return this.paginatedCoursesForPage.slice();
+  }
+
+  onPageClick(page: any) {
+    this.currentPage = page;
+    this.paginatedCoursesForPage = this.getCourse(this.currentPage);
+    return this.paginatedCoursesForPage.slice();
   }
 }
