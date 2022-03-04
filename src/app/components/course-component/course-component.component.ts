@@ -19,11 +19,10 @@ export class CourseComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataService.paginateCoursesMethod();
     this.totalPages = this.dataService.total;
     this.currentPage = this.dataService.currentPage;
     this.paginatedCourses = this.dataService
-      .getCourse(this.currentPage)
+      .getCourseAndInitialize(this.currentPage)
       .slice();
     this.allPaginatedCourses = this.dataService.paginatedCourses.slice();
   }
