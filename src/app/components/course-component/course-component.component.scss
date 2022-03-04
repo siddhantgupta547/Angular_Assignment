@@ -71,11 +71,12 @@
       height: 100%;
       background-color: #eff2ff;
       padding: 7px;
+      outline: none;
     }
 
     .search-icon {
-      border: none;
-      height: 10%;
+      border: 2px solid #ff6738;
+      height: 100%;
       color: white;
       background-color: #ff6738;
       padding: 1px 7px;

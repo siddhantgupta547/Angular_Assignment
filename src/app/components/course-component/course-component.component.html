@@ -3,7 +3,7 @@
 </div>
 <div class="component-header">
   <div class="left">
-    <p>All Courses</p>
+    <p><strong>All Courses</strong></p>
     <select
       name="character-side"
       id="character-side"
@@ -15,25 +15,23 @@
     </select>
   </div>
   <div class="right">
-    <form>
-      <div class="search">
-        <input
-          type="text"
-          type="search"
-          placeholder="Search here"
-          (input)="onSearch($event)"
-          placeholder="Enter Name Here"
-          [value]="searchFilter"
-        />
-      </div>
-      <button class="search-icon">
-        <span class="material-icons-outlined"> search </span>
-      </button>
-    </form>
+    <div class="search">
+      <input
+        type="text"
+        type="search"
+        placeholder="Search here"
+        (input)="onSearch($event)"
+        placeholder="Enter Name Here"
+        [value]="searchFilter"
+      />
+    </div>
+    <button class="search-icon">
+      <span class="material-icons-outlined"> search </span>
+    </button>
   </div>
 </div>
 <div class="no-courses" *ngIf="paginatedCourses.length <= 0">
-  <p>No Courses Found</p>
+  <p><em>No Courses Found</em></p>
 </div>
 <div class="course-container" *ngIf="paginatedCourses.length > 0">
   <app-course-card
