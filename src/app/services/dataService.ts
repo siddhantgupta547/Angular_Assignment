@@ -9,6 +9,8 @@ export class DataService {
 
   constructor() {}
 
+  /*----------------------------------------------------Courses---------------------------------------------------*/
+
   courses = [
     {
       tags: ['accusantium', 'suscipit', 'adipisci'],
@@ -199,7 +201,6 @@ export class DataService {
       return priceA - priceB;
     });
     this.paginateCoursesMethod(courses);
-    this.currentPage = 1;
     return this.getCourse(this.currentPage);
   }
 
@@ -215,15 +216,14 @@ export class DataService {
       return priceB - priceA;
     });
     this.paginateCoursesMethod(courses);
-    this.currentPage = 1;
     return this.getCourse(this.currentPage);
   }
 
   /*----------------------------------------------------get Courses Code---------------------------------------------------*/
 
-  getCourseAndInitialize(page: any) {
+  getCourseAndInitialize() {
     this.paginateCoursesMethod(this.courses);
-    return this.paginatedCourses[page - 1];
+    return this.paginatedCourses[0];
   }
 
   getCourse(page: any) {
@@ -233,7 +233,7 @@ export class DataService {
   /*----------------------------------------------------Pagination Code---------------------------------------------------*/
 
   paginateCoursesMethod(courses: any) {
-    this.total = courses.length / 5;
+    this.total = Math.ceil(courses.length / 5);
     const paginatedCourse = [];
     for (let i = 0; i < this.total; i++) {
       const newArray = [];
@@ -243,6 +243,7 @@ export class DataService {
       }
       paginatedCourse.push(newArray);
     }
+    this.currentPage = 1;
     this.paginatedCourses = paginatedCourse;
   }
 
@@ -262,6 +263,19 @@ export class DataService {
     this.currentPage = page;
     this.paginatedCoursesForPage = this.getCourse(this.currentPage);
     return this.paginatedCoursesForPage.slice();
+  }
+
+  /*----------------------------------------------------Search Filter Code---------------------------------------------------*/
+
+  OnSearch(searchString: any) {
+    const foundCourses = this.courses.filter((course) =>
+      course.title.toLowerCase().includes(searchString.toLowerCase())
+    );
+    if (foundCourses.length <= 0) return [];
+    this.paginateCoursesMethod(foundCourses);
+    this.currentPage = 1;
+    console.log(foundCourses, this.total, this.paginatedCourses);
+    return this.getCourse(this.currentPage);
   }
 
   /*----------------------------------------------------***********---------------------------------------------------*/

@@ -13,19 +13,18 @@ export class CourseComponentComponent implements OnInit {
   currentPage = 1;
   paginatedCourses = [];
   allPaginatedCourses = [];
+  searchFilter = '';
 
   constructor(dataService: DataService) {
     this.dataService = dataService;
   }
 
   ngOnInit(): void {
-    this.paginatedCourses = this.dataService
-      .getCourseAndInitialize(this.currentPage)
-      .slice();
-    this.totalPages = this.dataService.total;
-    this.currentPage = this.dataService.currentPage;
-    this.allPaginatedCourses = this.dataService.paginatedCourses.slice();
+    this.paginatedCourses = this.dataService.getCourseAndInitialize().slice();
+    this.setValues(this);
   }
+
+  /*----------------------------------------------------Pagination Code---------------------------------------------------*/
 
   onNext() {
     if (this.currentPage === this.totalPages) return;
@@ -45,14 +44,45 @@ export class CourseComponentComponent implements OnInit {
     e.preventDefault();
   }
 
-  /*------------*/
+  /*--------------------------------------------Header------------------------------------------------------*/
+
   onSelect(e: any) {
-    console.log(e.target.value);
     const value = e.target.value;
     if (value === '') return;
-    else if (value === 'asc')
+    else if (value === 'asc') {
+      this.currentPage = 1;
       this.paginatedCourses = this.dataService.sortPriceAsc();
-    else if (value === 'desc')
+    } else if (value === 'desc') {
+      this.currentPage = 1;
       this.paginatedCourses = this.dataService.sortPriceDesc();
+    }
   }
+
+  setValues(self: any) {
+    self.currentPage = self.dataService.currentPage;
+    self.totalPages = self.dataService.total;
+    self.allPaginatedCourses = self.dataService.paginatedCourses.slice();
+  }
+
+  onText() {
+    let timeoutId: any;
+    const self = this;
+    return function (event: any) {
+      clearTimeout(timeoutId);
+      const searchString = event.target.value;
+      if (searchString === null) {
+        self.dataService.getCourseAndInitialize();
+        self.setValues(self);
+        return;
+      }
+      timeoutId = setTimeout(() => {
+        self.paginatedCourses = self.dataService.OnSearch(searchString);
+        self.setValues(self);
+      }, 1000);
+    };
+  }
+
+  onSearch = this.onText();
+
+  /*----------------------------------------------------***********---------------------------------------------------*/
 }

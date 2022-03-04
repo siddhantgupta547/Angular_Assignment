@@ -17,15 +17,25 @@
   <div class="right">
     <form>
       <div class="search">
-        <input type="text" />
+        <input
+          type="text"
+          type="search"
+          placeholder="Search here"
+          (input)="onSearch($event)"
+          placeholder="Enter Name Here"
+          [value]="searchFilter"
+        />
       </div>
-      <button class="search-icon" type="submit">
+      <button class="search-icon">
         <span class="material-icons-outlined"> search </span>
       </button>
     </form>
   </div>
 </div>
-<div class="course-container">
+<div class="no-courses" *ngIf="paginatedCourses.length <= 0">
+  <p>No Courses Found</p>
+</div>
+<div class="course-container" *ngIf="paginatedCourses.length > 0">
   <app-course-card
     *ngFor="let course of paginatedCourses"
     [course]="course"
