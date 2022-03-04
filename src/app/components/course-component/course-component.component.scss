@@ -1,33 +1,38 @@
-.course-container {
-  margin: 10px 0;
-  //border: 1px solid black;
-  height: 530px; //67vh;
-  width: 900px;
-  min-width: 650px;
+.course-sidebar-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 
-  nav {
-    position: inherit;
-    top: 20px;
-    margin: 10px;
+  .course-container {
+    margin: 10px 0;
+    //border: 1px solid black;
+    height: 530px; //67vh;
+    width: 900px;
+    min-width: 650px;
+    // position: absolute;
 
-    .page-item {
-      padding: 5px;
-      .page-link {
-        border: none;
-        color: #1d1d1d;
-        border-radius: 25%;
-      }
-      .numbers {
-        background-image: url("../../../assets/icons/Ellipse\ 11.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: 0px;
-        color: white;
+    nav {
+      top: 20px;
+      margin: 10px;
+
+      .page-item {
+        padding: 5px;
+        .page-link {
+          border: none;
+          color: #1d1d1d;
+          border-radius: 25%;
+        }
+        .numbers {
+          background-image: url("../../../assets/icons/Ellipse\ 11.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: 0px;
+          color: white;
+        }
       }
     }
   }
 }
-
 /*----------------------------------------------component-header-----------------------------------------------*/
 
 .component-header {

@@ -1,95 +1,102 @@
-<div class="banner-containee">
-  <app-banner [bannerValue]="'Discover Latest Courses on Angular'"></app-banner>
-</div>
-<div class="component-header">
-  <div class="left">
-    <p><strong>All Courses</strong></p>
-    <select
-      name="character-side"
-      id="character-side"
-      (click)="onSelect($event)"
-    >
-      <option value="">Course Price</option>
-      <option value="asc">Low To High</option>
-      <option value="desc">High To Low</option>
-    </select>
+<div>
+  <div class="banner-containee">
+    <app-banner
+      [bannerValue]="'Discover Latest Courses on Angular'"
+    ></app-banner>
   </div>
-  <div class="right">
-    <div class="search">
-      <input
-        type="text"
-        type="search"
-        placeholder="Search here"
-        (input)="onSearch($event)"
-        placeholder="Enter Name Here"
-        [value]="searchFilter"
-      />
+  <div class="component-header">
+    <div class="left">
+      <p><strong>All Courses</strong></p>
+      <select
+        name="character-side"
+        id="character-side"
+        (click)="onSelect($event)"
+      >
+        <option value="">Course Price</option>
+        <option value="asc">Low To High</option>
+        <option value="desc">High To Low</option>
+      </select>
     </div>
-    <button class="search-icon">
-      <span class="material-icons-outlined"> search </span>
-    </button>
+    <div class="right">
+      <div class="search">
+        <input
+          type="text"
+          type="search"
+          placeholder="Search here"
+          (input)="onSearch($event)"
+          placeholder="Enter Name Here"
+          [value]="searchFilter"
+        />
+      </div>
+      <button class="search-icon">
+        <span class="material-icons-outlined"> search </span>
+      </button>
+    </div>
   </div>
-</div>
-<div class="no-courses" *ngIf="paginatedCourses.length <= 0">
-  <p><em>No Courses Found</em></p>
-</div>
-<div class="course-container" *ngIf="paginatedCourses.length > 0">
-  <app-course-card
-    *ngFor="let course of paginatedCourses"
-    [course]="course"
-  ></app-course-card>
-  <nav aria-label="...">
-    <ul class="pagination">
-      <li
-        class="page-item"
-        [ngClass]="currentPage == 1 ? 'disabled' : ''"
-        (click)="onPrev()"
-        *ngIf="currentPage !== 1"
-      >
-        <a class="page-link"
-          ><img src="../../../assets/icons/prevArrow.svg" alt="Previous"
-        /></a>
-      </li>
-      <li
-        class="page-item"
-        [ngClass]="currentPage == 1 ? 'disabled' : ''"
-        *ngIf="currentPage === 1"
-      >
-        <a class="page-link"
-          ><img src="../../../assets/icons/prevArrow.svg" alt="Previous"
-        /></a>
-      </li>
-      <li
-        class="page-item"
-        *ngFor="let page of allPaginatedCourses; let i = index"
-        (click)="onPageClick($event)"
-      >
-        <a
-          class="page-link"
-          href="#"
-          [ngClass]="currentPage === i + 1 ? 'numbers' : ''"
-          >{{ i + 1 }}</a
-        >
-      </li>
-      <li
-        class="page-item"
-        [ngClass]="currentPage === totalPages ? 'disabled' : ''"
-        (click)="onNext()"
-        *ngIf="currentPage !== totalPages"
-      >
-        <a class="page-link"
-          ><img src="../../../assets//icons/nextArrow.svg" alt="Next"
-        /></a>
-      </li>
-      <li
-        class="page-item"
-        [ngClass]="currentPage === totalPages ? 'disabled' : ''"
-        *ngIf="currentPage === totalPages"
-      >
-        <a class="page-link"
-          ><img src="../../../assets//icons/nextArrow.svg" alt="Next"
-        /></a>
-      </li>
-    </ul>
-  </nav>
+  <div class="course-sidebar-container">
+    <div class="no-courses" *ngIf="paginatedCourses.length <= 0">
+      <p><em>No Courses Found</em></p>
+    </div>
+    <div class="course-container" *ngIf="paginatedCourses.length > 0">
+      <app-course-card
+        *ngFor="let course of paginatedCourses"
+        [course]="course"
+      ></app-course-card>
+      <nav aria-label="...">
+        <ul class="pagination">
+          <li
+            class="page-item"
+            [ngClass]="currentPage == 1 ? 'disabled' : ''"
+            (click)="onPrev()"
+            *ngIf="currentPage !== 1"
+          >
+            <a class="page-link"
+              ><img src="../../../assets/icons/prevArrow.svg" alt="Previous"
+            /></a>
+          </li>
+          <li
+            class="page-item"
+            [ngClass]="currentPage == 1 ? 'disabled' : ''"
+            *ngIf="currentPage === 1"
+          >
+            <a class="page-link"
+              ><img src="../../../assets/icons/prevArrow.svg" alt="Previous"
+            /></a>
+          </li>
+          <li
+            class="page-item"
+            *ngFor="let page of allPaginatedCourses; let i = index"
+            (click)="onPageClick($event)"
+          >
+            <a
+              class="page-link"
+              href="#"
+              [ngClass]="currentPage === i + 1 ? 'numbers' : ''"
+              >{{ i + 1 }}</a
+            >
+          </li>
+          <li
+            class="page-item"
+            [ngClass]="currentPage === totalPages ? 'disabled' : ''"
+            (click)="onNext()"
+            *ngIf="currentPage !== totalPages"
+          >
+            <a class="page-link"
+              ><img src="../../../assets//icons/nextArrow.svg" alt="Next"
+            /></a>
+          </li>
+          <li
+            class="page-item"
+            [ngClass]="currentPage === totalPages ? 'disabled' : ''"
+            *ngIf="currentPage === totalPages"
+          >
+            <a class="page-link"
+              ><img src="../../../assets//icons/nextArrow.svg" alt="Next"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <app-side-bar-cart></app-side-bar-cart>
+  </div>
 </div>
