@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/dataService';
 
 @Component({
   selector: 'app-course-card',
@@ -7,8 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CourseCardComponent implements OnInit {
   @Input() course: any;
+  private dataService: DataService;
 
-  constructor() {}
+  constructor(dataService: DataService) {
+    this.dataService = dataService;
+  }
 
   ngOnInit(): void {}
+
+  onAddToCart() {
+    this.dataService.addToCart(this.course);
+  }
 }

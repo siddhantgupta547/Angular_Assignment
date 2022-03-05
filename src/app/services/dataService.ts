@@ -1,4 +1,4 @@
-import { OnInit, Injectable } from '@angular/core';
+import { of } from 'rxjs';
 
 export class DataService {
   paginatedCourses: any;
@@ -6,6 +6,8 @@ export class DataService {
   total = 0;
   currentPage = 1;
   paginatedCoursesForPage = [];
+  cart = new Array();
+  totalCost = new Array();
 
   constructor() {}
 
@@ -276,6 +278,45 @@ export class DataService {
     this.currentPage = 1;
     console.log(foundCourses, this.total, this.paginatedCourses);
     return this.getCourse(this.currentPage);
+  }
+
+  /*----------------------------------------------------Cart Code---------------------------------------------------*/
+
+  getCartItems() {
+    return of(this.cart);
+  }
+
+  getTotalCost() {
+    let totalPrice = 0;
+    for (let cartItem of this.cart) {
+      if (cartItem.discountedprice != null)
+        totalPrice += cartItem.discountedprice;
+      else {
+        totalPrice += cartItem.actualPrice;
+      }
+    }
+    this.totalCost.push(totalPrice);
+    return of(this.totalCost);
+  }
+
+  addToCart(course: any) {
+    if (this.cart.find((cartItem: any) => cartItem.id === course.id)) return;
+    else {
+      this.cart.push(course);
+      sessionStorage.setItem('cart', JSON.stringify(this.cart));
+    }
+  }
+
+  removeFromCart(course: any) {
+    if (this.cart.length <= 0) return;
+    if (this.cart.find((cartItem: any) => cartItem.id === course.id)) return 0;
+    else {
+      this.cart = this.cart.filter(
+        (cartItem: any) => cartItem.id !== course.id
+      );
+      console.log(this.cart);
+      return 1;
+    }
   }
 
   /*----------------------------------------------------***********---------------------------------------------------*/

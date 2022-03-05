@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/dataService';
 
 @Component({
   selector: 'app-side-bar-cart',
   templateUrl: './side-bar-cart.component.html',
-  styleUrls: ['./side-bar-cart.component.scss']
+  styleUrls: ['./side-bar-cart.component.scss'],
 })
 export class SideBarCartComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  private dataService: DataService;
+  totalCost = new Array();
+  cart = new Array();
+  constructor(dataService: DataService) {
+    this.dataService = dataService;
   }
 
+  ngOnInit(): void {
+    this.dataService.getCartItems().subscribe((cartItem) => {
+      this.cart = cartItem;
+    });
+    this.dataService.getTotalCost().subscribe((price) => {
+      console.log(price);
+      this.totalCost = price;
+    });
+  }
 }
