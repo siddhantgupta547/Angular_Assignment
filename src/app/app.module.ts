@@ -6,27 +6,28 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ContainerComponent } from './components/container/container.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CourseComponentComponent } from './components/course-component/course-component.component';
 import { CourseCardComponent } from './components/course-card/course-card.component';
 import { DataService } from './services/dataService';
 import { SideBarCartComponent } from './components/side-bar-cart/side-bar-cart.component';
+import { ProfileComponentComponent } from './components/profile-component/profile-component.component';
 
 const routes = [
-  { path: 'courses', component: AppComponent },
+  { path: 'courses', component: CourseComponentComponent },
   { path: '', redirectTo: '/courses', pathMatch: 'full' },
+  { path: 'profile', component: ProfileComponentComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ContainerComponent,
     BannerComponent,
     CourseComponentComponent,
     CourseCardComponent,
     SideBarCartComponent,
+    ProfileComponentComponent,
   ],
   imports: [
     BrowserModule,
