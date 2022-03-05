@@ -1,1 +1,172 @@
-<p>profile-component works!</p>
+<div class="container">
+  <app-banner [bannerValue]="'My Profile'"></app-banner>
+  <div class="profile-container">
+    <div class="left">
+      <div class="profile-pic">
+        <img
+          src="../../../assets/images/Mask Group 2.png"
+          alt="profile-picture"
+        />
+      </div>
+    </div>
+    <div class="right">
+      <div class="form-container">
+        <form>
+          <div class="form-top">
+            <label for="name">Display Name</label>
+            <input type="text" name="name" />
+            <label for="first-name">First Name</label>
+            <input type="text" name="first-name" />
+            <label for="last-name">Last Name</label>
+            <input type="text" name="last-name" />
+          </div>
+          <div class="form-about">
+            <label for="about">About Yourself</label>
+            <input type="textArea" name="about" />
+          </div>
+          <div class="checkboxes">
+            <label class="form-label fw-medium fs-12px"
+              >Your Area of Interest</label
+            >
+            <div class="form-check">
+              <input type="checkbox" id="designer" />
+              <label class="form-check-label" for="designer"> Designer </label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="developer" />
+              <label class="form-check-label" for="developer">
+                Developer
+              </label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="project-manager" />
+              <label class="form-check-label" for="project-manager">
+                Project Manager
+              </label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="designer" />
+              <label class="form-check-label" for="sales"> Sales </label>
+            </div>
+          </div>
+          <div class="radio">
+            <label class="form-label fw-medium fs-12px"
+              >Are you a student or Professional</label
+            >
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="userType"
+                id="student"
+                value="Student"
+              />
+              <label class="form-check-label" for="student"> Student </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="userType"
+                id="professional"
+                value="professional"
+              />
+              <label class="form-check-label" for="professional">
+                Professional
+              </label>
+            </div>
+          </div>
+          <div class="border p-2">
+            <div class="mb-4">
+              <div class="fw-medium fs-12px mb-4">
+                How much of experience you have?
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="experience"
+                  id="experience1"
+                  value="0-5"
+                />
+                <label class="form-check-label" for="experience1">0-5</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="experience"
+                  id="experience2"
+                  value="5-10"
+                />
+                <label class="form-check-label" for="experience2">5-10</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="experience"
+                  id="experience3"
+                  value="10 & Above"
+                />
+                <label class="form-check-label" for="experience3"
+                  >10 & Above</label
+                >
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="fw-medium fs-12px mb-4">What is your expertise</div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="expertise"
+                  id="expertise1"
+                  value="Java"
+                />
+                <label class="form-check-label" for="expertise1">Java</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="expertise"
+                  id="expertise2"
+                  value="React"
+                />
+                <label class="form-check-label" for="expertise2">React</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="expertise"
+                  id="expertise3"
+                  value="Backend"
+                />
+                <label class="form-check-label" for="expertise3">Backend</label>
+              </div>
+              <div>
+                <label for="role" class="form-label fw-medium fs-12px"
+                  >Mention your role</label
+                >
+                <input
+                  type="text"
+                  maxlength="200"
+                  class="form-control form-control-sm"
+                  id="role"
+                  placeholder="Frontend Developer"
+                />
+              </div>
+            </div>
+            <button
+              class="btn btn-primary text-white px-5 py-2 align-self-end flex-shrink-1"
+            >
+              SAVE
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

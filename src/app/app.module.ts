@@ -15,8 +15,8 @@ import { ProfileComponentComponent } from './components/profile-component/profil
 
 const routes = [
   { path: 'courses', component: CourseComponentComponent },
-  { path: '', redirectTo: '/courses', pathMatch: 'full' },
   { path: 'profile', component: ProfileComponentComponent },
+  { path: '', redirectTo: '/courses', pathMatch: 'full' },
 ];
 
 @NgModule({
