@@ -16,10 +16,12 @@ import { CartComponent } from './components/cart/cart.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 
 const routes = [
+  { path: 'courses/:id', component: CourseDetailsComponent },
   { path: 'courses', component: CourseComponentComponent },
   { path: 'profile', component: ProfileComponentComponent },
   { path: 'cart', component: CartComponent },
   { path: '', redirectTo: '/courses', pathMatch: 'full' },
+  { path: '**', component: CourseComponentComponent },
 ];
 
 @NgModule({
