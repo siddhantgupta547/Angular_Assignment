@@ -1,3 +1,4 @@
+<div class="black-background"></div>
 <div class="container">
   <div class="banner-container">
     <app-banner
@@ -6,7 +7,13 @@
   </div>
   <div class="component-header">
     <div class="left">
-      <p><strong>All Courses</strong></p>
+      <p>
+        <a
+          routerLink="/courses"
+          style="text-decoration: none; color: black; cursor: pointer"
+          >All Courses</a
+        ><strong> &nbsp; > &nbsp;{{ course.title }}</strong>
+      </p>
     </div>
     <div class="right">
       <div class="search"></div>
@@ -14,13 +21,66 @@
   </div>
   <div class="main-container">
     <div class="left">
-      <div class="details-header"></div>
-      <div class="details"></div>
+      <div class="details-header">
+        <h2>
+          {{ course.title }}
+        </h2>
+        <h5 style="font-weight: 100">{{ course.title }}</h5>
+        <h5 style="color: #ff9271; font-weight: 100">{{ course.author }}</h5>
+        <span class="tags" *ngFor="let tag of course.tags"
+          >{{ tag.substring(0, 5) }}&nbsp;</span
+        >
+      </div>
+      <div class="details">
+        <h5><strong>Course Details</strong></h5>
+        <p>{{ course.details }}</p>
+        <p>{{ course.description }}</p>
+      </div>
     </div>
     <div class="right">
-      <div class="player"></div>
-      <div class="functionality"></div>
+      <div class="player">
+        <span class="material-icons-outlined"> play_circle_outline </span>
+      </div>
+      <div class="functionality">
+        <h4>
+          <strong
+            >Rs
+            {{
+              course.discountedPrice != null
+                ? course.discountedPrice
+                : course.actualPrice
+            }}
+            /-</strong
+          >
+        </h4>
+        <h5 *ngIf="course.discountedPrice != null" style="font-weight: 100">
+          <s>
+            Rs
+            {{ course.actualPrice }}
+          </s>
+        </h5>
+        <span class="material-icons-outlined" style="color: #ff9271">
+          schedule
+        </span>
+        <p style="color: #ff9271">
+          <strong>8 Hours</strong> left for this price
+        </p>
+        <div class="button">
+          <button style="color: white" (click)="addToCart()">
+            ADD TO CART
+          </button>
+          <button
+            style="
+              background-color: white;
+              color: #ff9271;
+              border: 1px solid #ff9271;
+            "
+          >
+            ADD TO WISHLIST
+            <span class="material-icons-outlined"> book </span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<div class="black-background"></div>

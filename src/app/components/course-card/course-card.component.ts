@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RouteConfigLoadEnd } from '@angular/router';
 import { DataService } from 'src/app/services/dataService';
 
 @Component({

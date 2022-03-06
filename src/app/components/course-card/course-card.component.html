@@ -24,15 +24,15 @@
     <div class="price">
       <span
         >Rs{{
-          course.discountedPrice ? course.discountedPrice : course.actualPrice
+          course.discountedPrice != null
+            ? course.discountedPrice
+            : course.actualPrice
         }}/-</span
       >
     </div>
-    <div class="discounted-price">
+    <div class="discounted-price" *ngIf="course.discountedPrice != null">
       <s>
-        Rs{{
-          course.discountedPrice ? course.discountedPrice : course.actualPrice
-        }}/-
+        Rs{{ course.discountedPrice != null ? course.actualPrice : "" }}/-
       </s>
     </div>
   </div>
@@ -43,8 +43,8 @@
     >
       ADD TO CART
     </button>
-    <div class="details-button">
-      <a href="#">
+    <div class="details-button" [routerLink]="['/course', course.id]">
+      <a href="#" routerLink="course/{{ course.id }}">
         <img src="../../../assets/icons/arrow.svg" alt="" />
       </a>
     </div>

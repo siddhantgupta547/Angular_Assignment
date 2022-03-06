@@ -289,8 +289,8 @@ export class DataService {
   getTotalCost() {
     let totalPrice = 0;
     for (let cartItem of this.cart) {
-      if (cartItem.discountedprice != null)
-        totalPrice += parseInt(cartItem.discountedprice);
+      if (cartItem.discountedPrice != null)
+        totalPrice += parseInt(cartItem.discountedPrice);
       else {
         totalPrice += parseInt(cartItem.actualPrice);
       }
