@@ -13,6 +13,7 @@ import { DataService } from './services/dataService';
 import { SideBarCartComponent } from './components/side-bar-cart/side-bar-cart.component';
 import { ProfileComponentComponent } from './components/profile-component/profile-component.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CourseDetailsComponent } from './components/course-details/course-details.component';
 
 const routes = [
   { path: 'courses', component: CourseComponentComponent },
@@ -31,6 +32,7 @@ const routes = [
     SideBarCartComponent,
     ProfileComponentComponent,
     CartComponent,
+    CourseDetailsComponent,
   ],
   imports: [
     BrowserModule,
