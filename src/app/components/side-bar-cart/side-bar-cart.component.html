@@ -35,12 +35,14 @@
       <div class="total">
         <h6>Total Cart Value</h6>
         <h5>
-          <strong>Rs {{ totalCost[0] }}/-</strong>
+          <strong>Rs {{ totalPrice }}/-</strong>
         </h5>
       </div>
 
       <div class="checkout-button">
-        <a>GO TO CHECKOUT</a>
+        <a routerLink="/cart" style="text-decoration: none; color: #ff6738"
+          >GO TO CHECKOUT</a
+        >
       </div>
     </div>
   </div>
@@ -48,7 +50,7 @@
 <div class="sidebar-cart" *ngIf="isCart">
   <div class="container">
     <h5>Total Amount</h5>
-    <h3>Rs 00 /-</h3>
+    <h3>Rs {{ totalPrice }} /-</h3>
     <p>You Have Saved Rs 0/-</p>
     <button class="btn btn-primary text-white fw-semi-bold">CHECKOUT</button>
   </div>

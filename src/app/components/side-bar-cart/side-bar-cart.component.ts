@@ -8,21 +8,22 @@ import { DataService } from 'src/app/services/dataService';
 })
 export class SideBarCartComponent implements OnInit {
   private dataService: DataService;
-  totalCost = new Array();
+
   cart = new Array();
   @Input() isCart = false;
+  @Input() totalPrice: any;
+  totalCost: any;
 
   constructor(dataService: DataService) {
     this.dataService = dataService;
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  ngDoCheck(): void {
     this.dataService.getCartItems().subscribe((cartItem) => {
       this.cart = cartItem;
-    });
-    this.dataService.getTotalCost().subscribe((price) => {
-      console.log(price);
-      this.totalCost = price;
+      this.totalPrice = this.dataService.getTotalCost();
     });
   }
 }

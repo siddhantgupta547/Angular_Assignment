@@ -7,7 +7,7 @@ export class DataService {
   currentPage = 1;
   paginatedCoursesForPage = [];
   cart = new Array();
-  totalCost = new Array();
+  totalCost = 0;
 
   constructor() {}
 
@@ -290,13 +290,13 @@ export class DataService {
     let totalPrice = 0;
     for (let cartItem of this.cart) {
       if (cartItem.discountedprice != null)
-        totalPrice += cartItem.discountedprice;
+        totalPrice += parseInt(cartItem.discountedprice);
       else {
-        totalPrice += cartItem.actualPrice;
+        totalPrice += parseInt(cartItem.actualPrice);
       }
     }
-    this.totalCost.push(totalPrice);
-    return of(this.totalCost);
+    this.totalCost = totalPrice;
+    return this.totalCost;
   }
 
   addToCart(course: any) {
