@@ -9,4 +9,8 @@ export class ProfileComponentComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSubmit(submittedForm: any) {
+    console.log(submittedForm.form.value, submittedForm);
+  }
 }

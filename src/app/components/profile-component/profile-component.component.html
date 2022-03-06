@@ -11,46 +11,118 @@
     </div>
     <div class="right">
       <div class="form-container">
-        <form>
-          <div class="form-top">
-            <label for="name">Display Name</label>
-            <input type="text" name="name" />
-            <label for="first-name">First Name</label>
-            <input type="text" name="first-name" />
-            <label for="last-name">Last Name</label>
-            <input type="text" name="last-name" />
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <div
+            class="form-top"
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+            "
+          >
+            <div class="form-top-input">
+              <label for="name">Display Name</label>
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                style="width: 250px"
+                placeholder="John Doe"
+              />
+            </div>
+            <div class="form-top-input">
+              <label for="first-name">First Name</label>
+              <input
+                type="text"
+                name="first-name"
+                class="form-control"
+                style="width: 250px"
+                placeholder="John"
+                ngModel
+              />
+            </div>
+            <div class="form-top-input">
+              <label for="last-name">Last Name</label>
+              <input
+                type="text"
+                name="last-name"
+                class="form-control"
+                style="width: 250px"
+                placeholder="Doe"
+                ngModel
+              />
+            </div>
           </div>
           <div class="form-about">
-            <label for="about">About Yourself</label>
-            <input type="textArea" name="about" />
+            <div class="mb-3">
+              <label for="about">About Yourself</label>
+              <textarea
+                class="form-control"
+                id="about"
+                rows="4"
+                style="width: 608px; margin: 5px 0"
+                placeholder="About Yourself"
+                ngModel
+              ></textarea>
+            </div>
           </div>
           <div class="checkboxes">
-            <label class="form-label fw-medium fs-12px"
+            <label class="form-label fw-medium fs-12px" style="margin: 5px 0"
               >Your Area of Interest</label
             >
             <div class="form-check">
-              <input type="checkbox" id="designer" />
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="designer"
+                value="designer"
+                name="interest"
+                ngModel
+              />
               <label class="form-check-label" for="designer"> Designer </label>
             </div>
             <div class="form-check">
-              <input type="checkbox" id="developer" />
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="developer"
+                value="developer"
+                name="interest"
+                ngModel
+              />
               <label class="form-check-label" for="developer">
                 Developer
               </label>
             </div>
             <div class="form-check">
-              <input type="checkbox" id="project-manager" />
-              <label class="form-check-label" for="project-manager">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="projectManager"
+                value="projectManager"
+                name="interest"
+                ngModel
+              />
+              <label class="form-check-label" for="projectManager">
                 Project Manager
               </label>
             </div>
             <div class="form-check">
-              <input type="checkbox" id="designer" />
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="sales"
+                value="sales"
+                name="interest"
+                ngModel
+              />
               <label class="form-check-label" for="sales"> Sales </label>
             </div>
           </div>
           <div class="radio">
-            <label class="form-label fw-medium fs-12px"
+            <label
+              class="form-label fw-medium fs-12px"
+              style="margin: 10px 0 5px"
               >Are you a student or Professional</label
             >
             <div class="form-check">
@@ -60,6 +132,7 @@
                 name="userType"
                 id="student"
                 value="Student"
+                ngModel
               />
               <label class="form-check-label" for="student"> Student </label>
             </div>
@@ -70,13 +143,14 @@
                 name="userType"
                 id="professional"
                 value="professional"
+                ngModel
               />
               <label class="form-check-label" for="professional">
                 Professional
               </label>
             </div>
           </div>
-          <div class="border p-2">
+          <div class="border p-2" style="margin: 10px 0">
             <div class="mb-4">
               <div class="fw-medium fs-12px mb-4">
                 How much of experience you have?
@@ -146,7 +220,7 @@
                 />
                 <label class="form-check-label" for="expertise3">Backend</label>
               </div>
-              <div>
+              <div style="margin: 15px 0">
                 <label for="role" class="form-label fw-medium fs-12px"
                   >Mention your role</label
                 >
@@ -159,12 +233,12 @@
                 />
               </div>
             </div>
-            <button
-              class="btn btn-primary text-white px-5 py-2 align-self-end flex-shrink-1"
-            >
-              SAVE
-            </button>
           </div>
+          <button
+            class="btn btn-primary text-white px-5 py-2 align-self-end flex-shrink-1"
+          >
+            SAVE
+          </button>
         </form>
       </div>
     </div>

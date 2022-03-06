@@ -2,9 +2,41 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  font-size: small;
 
   .right {
     width: 1000px;
+    margin-bottom: 25px;
     box-shadow: 0px 3px 6px #00000029;
+
+    .form-container {
+      margin: 25px;
+      .form-top-input {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 0 15px 0;
+
+        input {
+          margin: 5px 0;
+        }
+      }
+      .form-check-label {
+        font-weight: 500;
+        color: #242222;
+      }
+      .form-check-input:checked {
+        background-color: #ee6c4d;
+        border-color: #ee6c4d;
+      }
+      & button {
+        background-color: #ff6738;
+        color: white;
+        border: none;
+        float: right;
+        margin-bottom: 15px;
+      }
+    }
   }
 }
