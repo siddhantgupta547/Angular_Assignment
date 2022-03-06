@@ -30,9 +30,9 @@
         }}/-</span
       >
     </div>
-    <div class="discounted-price" *ngIf="course.discountedPrice != null">
+    <div class="discounted-price">
       <s>
-        Rs{{ course.discountedPrice != null ? course.actualPrice : "" }}/-
+        Rs{{ course.discountedPrice != null ? course.actualPrice : "-" }}/-
       </s>
     </div>
   </div>
