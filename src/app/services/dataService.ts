@@ -2,12 +2,12 @@ import { of } from 'rxjs';
 
 export class DataService {
   paginatedCourses: any;
-  wishListedCourses: any;
   total = 0;
   currentPage = 1;
   paginatedCoursesForPage = [];
   cart = new Array();
   totalCost = 0;
+  wishListedCourses = new Array();
 
   constructor() {}
 
@@ -189,6 +189,46 @@ export class DataService {
     },
   ];
 
+  recommededCourses() {
+    return [
+      {
+        tags: ['autem', 'minus', 'quia'],
+        details:
+          'Repellat occaecati velit nulla eum enim. Dolor corporis id quas voluptas dolorem. Et impedit et dolore. Repudiandae est quibusdam omnis sed ut. Vel in minima unde. Soluta sunt in vel nostrum vitae atque unde id.\n \rSint est mollitia non excepturi quo optio. Eum odio necessitatibus ut ipsam. A unde natus error qui ut. Modi et labore dolores odit sapiente voluptas quibusdam.\n \rNumquam unde rerum iusto et deserunt. Amet rerum voluptatum ut magni pariatur id. Quia alias sunt earum sit. In sit aut quaerat. Voluptatum magni dolore repudiandae asperiores voluptate ea possimus fugit. Autem quidem dolores impedit ducimus hic.',
+        description: 'At et a cumque exercitationem.',
+        discountedPrice: '594',
+        actualPrice: '855',
+        author: 'Benny Swaniawski',
+        title: 'ea sint repudiandae temporibus sit maiores',
+        id: '13',
+        saleEndTime: '2022-01-19T01:48:00',
+      },
+      {
+        tags: ['delectus'],
+        details:
+          'Asperiores a optio ipsum. Quia aut illo et atque aspernatur nulla asperiores ipsa. Ad error sed qui odit sint non repellendus. Dicta mollitia consequuntur repudiandae dolorum. Molestiae dolorem earum est alias iure nostrum magnam molestias.\n \rVitae exercitationem facilis voluptatem rem laudantium animi maxime blanditiis. A praesentium laborum nulla. Veniam adipisci beatae. Eum voluptatem cumque odio quibusdam officia. Deleniti dolorem a. Maxime ea similique laborum recusandae molestias ut blanditiis officia.\n \rIure vitae ea alias ut porro eaque. Repudiandae incidunt velit ullam excepturi omnis est et. Qui et ipsa odit nihil voluptatem unde. Inventore molestias quam magnam.',
+        description: 'Quis voluptates aut vero esse et qui.',
+        discountedPrice: null,
+        actualPrice: '818',
+        author: 'Tricia Goodwin',
+        title: 'et ut est nesciunt nam atque',
+        id: '14',
+      },
+      {
+        tags: ['nihil', 'ab'],
+        details:
+          'Cum totam cum eius. Quos ut molestiae rerum. Laudantium repudiandae et temporibus. Eos ipsa voluptatem ut consequatur provident. Quia delectus dolor voluptates quas dolor exercitationem deleniti aut non. Molestias itaque autem nesciunt.\n \rAnimi nihil nesciunt. Voluptas dolor reprehenderit voluptas non. Enim quod impedit maiores distinctio fugiat et quo sapiente omnis. Et sint possimus nostrum nihil reiciendis. Numquam neque nisi incidunt quasi perferendis architecto necessitatibus sit. Architecto fugiat maxime.\n \rQuisquam ut praesentium aliquam aut ullam. Qui mollitia voluptatum dolorum. A est alias ducimus aut.',
+        description: 'Accusantium maiores asperiores ut quia omnis rerum.',
+        discountedPrice: '655',
+        actualPrice: '835',
+        author: 'Kelvin Dooley',
+        title: 'doloribus neque aliquam',
+        id: '15',
+        saleEndTime: '2022-01-19T02:48:00',
+      },
+    ];
+  }
+
   /*----------------------------------------------------Sorting Code---------------------------------------------------*/
 
   sortPriceAsc() {
@@ -309,54 +349,43 @@ export class DataService {
 
   removeFromCart(course: any) {
     if (this.cart.length <= 0) return;
-    if (this.cart.find((cartItem: any) => cartItem.id === course.id)) return 0;
     else {
       this.cart = this.cart.filter(
         (cartItem: any) => cartItem.id !== course.id
       );
-      console.log(this.cart);
-      return 1;
     }
   }
 
-  recommededCourses() {
-    return [
-      {
-        tags: ['autem', 'minus', 'quia'],
-        details:
-          'Repellat occaecati velit nulla eum enim. Dolor corporis id quas voluptas dolorem. Et impedit et dolore. Repudiandae est quibusdam omnis sed ut. Vel in minima unde. Soluta sunt in vel nostrum vitae atque unde id.\n \rSint est mollitia non excepturi quo optio. Eum odio necessitatibus ut ipsam. A unde natus error qui ut. Modi et labore dolores odit sapiente voluptas quibusdam.\n \rNumquam unde rerum iusto et deserunt. Amet rerum voluptatum ut magni pariatur id. Quia alias sunt earum sit. In sit aut quaerat. Voluptatum magni dolore repudiandae asperiores voluptate ea possimus fugit. Autem quidem dolores impedit ducimus hic.',
-        description: 'At et a cumque exercitationem.',
-        discountedPrice: '594',
-        actualPrice: '855',
-        author: 'Benny Swaniawski',
-        title: 'ea sint repudiandae temporibus sit maiores',
-        id: '13',
-        saleEndTime: '2022-01-19T01:48:00',
-      },
-      {
-        tags: ['delectus'],
-        details:
-          'Asperiores a optio ipsum. Quia aut illo et atque aspernatur nulla asperiores ipsa. Ad error sed qui odit sint non repellendus. Dicta mollitia consequuntur repudiandae dolorum. Molestiae dolorem earum est alias iure nostrum magnam molestias.\n \rVitae exercitationem facilis voluptatem rem laudantium animi maxime blanditiis. A praesentium laborum nulla. Veniam adipisci beatae. Eum voluptatem cumque odio quibusdam officia. Deleniti dolorem a. Maxime ea similique laborum recusandae molestias ut blanditiis officia.\n \rIure vitae ea alias ut porro eaque. Repudiandae incidunt velit ullam excepturi omnis est et. Qui et ipsa odit nihil voluptatem unde. Inventore molestias quam magnam.',
-        description: 'Quis voluptates aut vero esse et qui.',
-        discountedPrice: null,
-        actualPrice: '818',
-        author: 'Tricia Goodwin',
-        title: 'et ut est nesciunt nam atque',
-        id: '14',
-      },
-      {
-        tags: ['nihil', 'ab'],
-        details:
-          'Cum totam cum eius. Quos ut molestiae rerum. Laudantium repudiandae et temporibus. Eos ipsa voluptatem ut consequatur provident. Quia delectus dolor voluptates quas dolor exercitationem deleniti aut non. Molestias itaque autem nesciunt.\n \rAnimi nihil nesciunt. Voluptas dolor reprehenderit voluptas non. Enim quod impedit maiores distinctio fugiat et quo sapiente omnis. Et sint possimus nostrum nihil reiciendis. Numquam neque nisi incidunt quasi perferendis architecto necessitatibus sit. Architecto fugiat maxime.\n \rQuisquam ut praesentium aliquam aut ullam. Qui mollitia voluptatum dolorum. A est alias ducimus aut.',
-        description: 'Accusantium maiores asperiores ut quia omnis rerum.',
-        discountedPrice: '655',
-        actualPrice: '835',
-        author: 'Kelvin Dooley',
-        title: 'doloribus neque aliquam',
-        id: '15',
-        saleEndTime: '2022-01-19T02:48:00',
-      },
-    ];
+  /*----------------------------------------------------Wishlist Code---------------------------------------------------*/
+
+  getWishListedCourses() {
+    return of(this.wishListedCourses);
   }
+
+  addToWishList(course: any) {
+    if (
+      this.wishListedCourses.find(
+        (wishListCourse: any) => wishListCourse.id === course.id
+      )
+    )
+      return;
+    else {
+      this.wishListedCourses.push(course);
+      sessionStorage.setItem(
+        'wishlist',
+        JSON.stringify(this.wishListedCourses)
+      );
+    }
+  }
+
+  removeFromWishList(course: any) {
+    if (this.wishListedCourses.length <= 0) return;
+    else {
+      this.wishListedCourses = this.wishListedCourses.filter(
+        (wishListCourse: any) => wishListCourse.id !== course.id
+      );
+    }
+  }
+
   /*----------------------------------------------------***********---------------------------------------------------*/
 }

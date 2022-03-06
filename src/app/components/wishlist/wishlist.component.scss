@@ -1,0 +1,42 @@
+.course-sidebar-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  .course-container,
+  .no-courses {
+    margin: 10px 0;
+    //border: 1px solid black;
+    height: 530px; //67vh;
+    width: 900px;
+    min-width: 650px;
+    // position: absolute;
+  }
+}
+/*----------------------------------------------component-header-----------------------------------------------*/
+
+.component-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 5px 0;
+  width: 100%;
+  //border: 2px solid blue;
+
+  .left {
+    //border: 1px solid orange;
+    width: 862px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .right {
+    //border: 1px solid red;
+    width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+  }
+}

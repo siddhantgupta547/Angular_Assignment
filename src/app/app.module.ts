@@ -14,12 +14,14 @@ import { SideBarCartComponent } from './components/side-bar-cart/side-bar-cart.c
 import { ProfileComponentComponent } from './components/profile-component/profile-component.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 const routes = [
   { path: 'courses/course/:courseId', component: CourseDetailsComponent },
   { path: 'courses', component: CourseComponentComponent },
   { path: 'profile', component: ProfileComponentComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'wishlist', component: WishlistComponent },
   { path: '', redirectTo: '/courses', pathMatch: 'full' },
   { path: '**', component: CourseComponentComponent },
 ];
@@ -35,6 +37,7 @@ const routes = [
     ProfileComponentComponent,
     CartComponent,
     CourseDetailsComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,

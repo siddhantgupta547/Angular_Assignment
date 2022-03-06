@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="banner-containee">
+    <app-banner
+      [bannerValue]="'Discover Latest Courses on Angular'"
+    ></app-banner>
+  </div>
+  <div class="component-header">
+    <div class="left">
+      <p><strong>My Wishlist</strong></p>
+    </div>
+    <div class="right">
+      <div class="search"></div>
+    </div>
+  </div>
+  <div class="course-sidebar-container">
+    <div
+      class="no-courses"
+      *ngIf="wishListedCourses.length <= 0"
+      style="box-shadow: 0px 3px 6px #00000029; height: min-content"
+    >
+      <p style="padding: 10px"><em>No Courses Found</em></p>
+    </div>
+    <div class="course-container" *ngIf="wishListedCourses.length > 0">
+      <app-course-card
+        *ngFor="let course of wishListedCourses"
+        [course]="course"
+      ></app-course-card>
+    </div>
+    <app-side-bar-cart [isCart]="false"></app-side-bar-cart>
+  </div>
+</div>

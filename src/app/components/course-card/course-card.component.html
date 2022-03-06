@@ -16,9 +16,14 @@
     <span>{{ course.author }}</span>
   </div>
   <div class="third">
-    <ng-container>
-      <a href="#">
+    <ng-container *ngIf="isWishListed === false">
+      <a (click)="onClick($event)">
         <img src="../../../assets/icons/star.svg" />
+      </a>
+    </ng-container>
+    <ng-container *ngIf="isWishListed === true">
+      <a>
+        <img src="../../../assets/icons/Path 28.svg" />
       </a>
     </ng-container>
     <div class="price">
