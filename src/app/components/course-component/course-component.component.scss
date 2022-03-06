@@ -3,7 +3,8 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 
-  .course-container {
+  .course-container,
+  .no-courses {
     margin: 10px 0;
     //border: 1px solid black;
     height: 530px; //67vh;

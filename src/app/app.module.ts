@@ -12,10 +12,12 @@ import { CourseCardComponent } from './components/course-card/course-card.compon
 import { DataService } from './services/dataService';
 import { SideBarCartComponent } from './components/side-bar-cart/side-bar-cart.component';
 import { ProfileComponentComponent } from './components/profile-component/profile-component.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes = [
   { path: 'courses', component: CourseComponentComponent },
   { path: 'profile', component: ProfileComponentComponent },
+  { path: 'cart', component: CartComponent },
   { path: '', redirectTo: '/courses', pathMatch: 'full' },
 ];
 
@@ -28,6 +30,7 @@ const routes = [
     CourseCardComponent,
     SideBarCartComponent,
     ProfileComponentComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

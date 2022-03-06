@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="banner-container">
+    <app-banner [bannerValue]="'Shopping Cart'"></app-banner>
+  </div>
+  <div class="component-header">
+    <div class="left">
+      <p><strong>Courses in Cart</strong></p>
+    </div>
+    <div class="right">
+      <div class="search"></div>
+    </div>
+  </div>
+  <div class="course-sidebar-container">
+    <div class="cart-recommended-container">
+      <div class="course-container" *ngIf="paginatedCartCourses.length > 0">
+        <app-course-card
+          *ngFor="let course of paginatedCartCourses"
+          [course]="course"
+        ></app-course-card>
+      </div>
+      <div class="recommended-container">
+        <div class="heading">
+          <p><strong>Recommended Courses</strong></p>
+        </div>
+        <div class="recommended-course-container">
+          <app-course-card
+            *ngFor="let course of recommendedCourses"
+            [course]="course"
+          ></app-course-card>
+        </div>
+      </div>
+    </div>
+    <app-side-bar-cart></app-side-bar-cart>
+  </div>
+</div>

@@ -1,46 +1,48 @@
 <div class="sidebar-cart">
-  <div class="header">
-    <p>YOUR CART DETAILS</p>
-    <hr />
-  </div>
-  <div class="cart-item">
-    <p *ngIf="cart.length === 0">
-      <em
-        >Your cart is empty right now. Please add courses in the cart from the
-        list</em
-      >
-    </p>
-    <div *ngFor="let cartItem of cart">
-      <div class="top">
-        <div class="thumbnail"></div>
-        <div class="desc">
-          {{ cartItem.title.substring(0, 30).toUpperCase() }}
-        </div>
-      </div>
-      <div class="bottom">
-        <strong
-          >Rs&nbsp;{{
-            cartItem.discountedPrice != null
-              ? cartItem.discountedPrice
-              : cartItem.actualPrice
-          }}</strong
-        >
-      </div>
+  <div class="not-cart">
+    <div class="header">
+      <p>YOUR CART DETAILS</p>
       <hr />
     </div>
-  </div>
-  <div class="footer">
-    <hr />
-    <div class="total-footer">
-      <div class="total">
-        <h6>Total Cart Value</h6>
-        <h5>
-          <strong>Rs {{ totalCost[0] }}/-</strong>
-        </h5>
+    <div class="cart-item">
+      <p *ngIf="cart.length === 0">
+        <em
+          >Your cart is empty right now. Please add courses in the cart from the
+          list</em
+        >
+      </p>
+      <div *ngFor="let cartItem of cart">
+        <div class="top">
+          <div class="thumbnail"></div>
+          <div class="desc">
+            {{ cartItem.title.substring(0, 30).toUpperCase() }}
+          </div>
+        </div>
+        <div class="bottom">
+          <strong
+            >Rs&nbsp;{{
+              cartItem.discountedPrice != null
+                ? cartItem.discountedPrice
+                : cartItem.actualPrice
+            }}</strong
+          >
+        </div>
+        <hr />
       </div>
+    </div>
+    <div class="footer">
+      <hr />
+      <div class="total-footer">
+        <div class="total">
+          <h6>Total Cart Value</h6>
+          <h5>
+            <strong>Rs {{ totalCost[0] }}/-</strong>
+          </h5>
+        </div>
 
-      <div class="checkout-button">
-        <a>GO TO CHECKOUT</a>
+        <div class="checkout-button">
+          <a>GO TO CHECKOUT</a>
+        </div>
       </div>
     </div>
   </div>
