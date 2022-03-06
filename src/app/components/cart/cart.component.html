@@ -11,10 +11,21 @@
     </div>
   </div>
   <div class="course-sidebar-container">
+    <div
+      class="no-courses"
+      *ngIf="CartCourses.length <= 0"
+      style="overflow: hidden"
+    >
+      <p><em>No Courses in Cart!</em></p>
+    </div>
     <div class="cart-recommended-container">
-      <div class="course-container" *ngIf="paginatedCartCourses.length > 0">
+      <div
+        class="course-container"
+        *ngIf="CartCourses.length > 0"
+        style="border: 1px solid #e0e0e0"
+      >
         <app-course-card
-          *ngFor="let course of paginatedCartCourses"
+          *ngFor="let course of CartCourses"
           [course]="course"
         ></app-course-card>
       </div>
@@ -30,6 +41,6 @@
         </div>
       </div>
     </div>
-    <app-side-bar-cart></app-side-bar-cart>
+    <app-side-bar-cart [isCart]="true"></app-side-bar-cart>
   </div>
 </div>

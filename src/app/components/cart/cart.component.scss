@@ -33,13 +33,12 @@
     justify-content: space-evenly;
   }
 
-  .course-container {
-    border: 1px solid #e0e0e0;
+  .course-container,
+  .no-courses {
     margin: 10px 0;
     //border: 1px solid black;
     max-height: 500px;
     overflow-y: scroll;
-    scrollbar-width: thin;
     width: 900px;
     min-width: 650px;
     // position: absolute;

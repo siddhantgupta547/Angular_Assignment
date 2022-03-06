@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from 'src/app/services/dataService';
 
 @Component({
@@ -10,6 +10,8 @@ export class SideBarCartComponent implements OnInit {
   private dataService: DataService;
   totalCost = new Array();
   cart = new Array();
+  @Input() isCart = false;
+
   constructor(dataService: DataService) {
     this.dataService = dataService;
   }
