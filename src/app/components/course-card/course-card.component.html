@@ -47,9 +47,15 @@
     <button
       class="btn btn-primary text-white fw-semi-bold"
       (click)="onAddToCart()"
+      *ngIf="isCart === false"
     >
       ADD TO CART
     </button>
+    <div class="delete-button" *ngIf="isCart === true">
+      <a (click)="onRemoveFromCart()" style="cursor: pointer"
+        ><img src="../../../assets/icons/noun_Delete_3715928.svg"
+      /></a>
+    </div>
     <div class="delete-button" *ngIf="isWishList === true">
       <a (click)="onDelete()"
         ><img src="../../../assets/icons/noun_Delete_3715928.svg"

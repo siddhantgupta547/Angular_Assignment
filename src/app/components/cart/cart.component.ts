@@ -24,4 +24,8 @@ export class CartComponent implements OnInit {
       this.CartCourses = cartItem;
     });
   }
+
+  onCheckout() {
+    this.dataService.cart = [];
+  }
 }

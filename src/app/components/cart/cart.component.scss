@@ -80,3 +80,19 @@
 .scroll {
   overflow-y: scroll;
 }
+
+button {
+  font-size: 13px;
+  height: 40px;
+  width: 200px;
+  background-color: #ff6738;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+}
+
+@media screen and (min-width: 1400px) {
+  button {
+    display: none;
+  }
+}

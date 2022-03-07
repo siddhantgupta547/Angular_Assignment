@@ -14,7 +14,7 @@ export class CourseCardComponent implements OnInit {
   isWishListed = false;
 
   @Input() isWishList = false;
-  @Input() isCart = null;
+  @Input() isCart = false;
 
   constructor(dataService: DataService) {
     this.dataService = dataService;
@@ -24,6 +24,10 @@ export class CourseCardComponent implements OnInit {
 
   onAddToCart() {
     this.dataService.addToCart(this.course);
+  }
+
+  onRemoveFromCart() {
+    this.dataService.removeFromCart(this.course);
   }
 
   ngDoCheck(): void {

@@ -27,6 +27,7 @@
         <app-course-card
           *ngFor="let course of CartCourses"
           [course]="course"
+          [isCart]="true"
         ></app-course-card>
       </div>
       <div class="recommended-container">
@@ -41,6 +42,14 @@
         </div>
       </div>
     </div>
+    <button
+      [ngClass]="CartCourses.length <= 0 ? 'disabled' : ''"
+      class="btn btn-primary text-white fw-semi-bold"
+      (click)="onCheckout()"
+      style="outline: none; background-color: #ff6738; margin: 10px"
+    >
+      CHECKOUT
+    </button>
     <app-side-bar-cart [isCart]="true"></app-side-bar-cart>
   </div>
 </div>
