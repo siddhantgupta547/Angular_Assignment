@@ -11,8 +11,8 @@ export class SideBarCartComponent implements OnInit {
 
   cart = new Array();
   @Input() isCart = false;
-  @Input() totalPrice: any;
-  totalCost: any;
+  totalPrice: any;
+  savedAmount: any;
 
   constructor(dataService: DataService) {
     this.dataService = dataService;
@@ -24,6 +24,11 @@ export class SideBarCartComponent implements OnInit {
     this.dataService.getCartItems().subscribe((cartItem) => {
       this.cart = cartItem;
       this.totalPrice = this.dataService.getTotalCost();
+      this.savedAmount = this.dataService.getSavedAmount();
     });
+  }
+
+  onCheckout() {
+    this.dataService.cart = [];
   }
 }

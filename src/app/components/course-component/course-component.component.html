@@ -10,7 +10,8 @@
       <select
         name="character-side"
         id="character-side"
-        (click)="onSelect($event)"
+        (change)="onSelect($event)"
+        style="outline: none"
       >
         <option value="">Course Price</option>
         <option value="asc">Low To High</option>

@@ -25,7 +25,7 @@
   .cart-item {
     margin: 0 15px;
     height: 265px;
-    overflow-y: scroll;
+
     font: normal normal medium 18px/22px Montserrat;
 
     .top {
@@ -101,4 +101,8 @@
   .sidebar-cart {
     display: none;
   }
+}
+
+.scroll {
+  overflow-y: scroll;
 }

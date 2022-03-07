@@ -20,10 +20,15 @@
     >
       <p style="padding: 10px"><em>No Courses Found</em></p>
     </div>
-    <div class="course-container" *ngIf="wishListedCourses.length > 0">
+    <div
+      class="course-container"
+      *ngIf="wishListedCourses.length > 0"
+      [ngClass]="wishListedCourses.length > 5 ? 'scroll' : ''"
+    >
       <app-course-card
         *ngFor="let course of wishListedCourses"
         [course]="course"
+        [isWishList]="true"
       ></app-course-card>
     </div>
     <app-side-bar-cart [isCart]="false"></app-side-bar-cart>

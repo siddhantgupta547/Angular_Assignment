@@ -3,7 +3,7 @@
     <p>YOUR CART DETAILS</p>
     <hr />
   </div>
-  <div class="cart-item">
+  <div class="cart-item" [ngClass]="cart.length > 2 ? 'scroll' : ''">
     <p *ngIf="cart.length === 0">
       <em
         >Your cart is empty right now. Please add courses in the cart from the
@@ -50,8 +50,17 @@
 <div class="sidebar-cart" *ngIf="isCart">
   <div class="container">
     <h5>Total Amount</h5>
-    <h3>Rs {{ totalPrice }} /-</h3>
-    <p>You Have Saved Rs 0/-</p>
-    <button class="btn btn-primary text-white fw-semi-bold">CHECKOUT</button>
+    <h3>Rs {{ totalPrice }}/-</h3>
+    <p style="color: #629a33">
+      <strong>You Have Saved Rs {{ savedAmount }}/-</strong>
+    </p>
+    <button
+      [ngClass]="cart.length <= 0 ? 'disabled' : ''"
+      class="btn btn-primary text-white fw-semi-bold"
+      (click)="onCheckout()"
+      style="outline: none"
+    >
+      CHECKOUT
+    </button>
   </div>
 </div>

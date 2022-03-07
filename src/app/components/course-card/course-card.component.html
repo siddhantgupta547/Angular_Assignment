@@ -16,16 +16,18 @@
     <span>{{ course.author }}</span>
   </div>
   <div class="third">
-    <ng-container *ngIf="isWishListed === false">
-      <a (click)="onClick($event)">
-        <img src="../../../assets/icons/star.svg" />
-      </a>
-    </ng-container>
-    <ng-container *ngIf="isWishListed === true">
-      <a>
-        <img src="../../../assets/icons/Path 28.svg" />
-      </a>
-    </ng-container>
+    <div *ngIf="isWishList === false">
+      <ng-container *ngIf="isWishListed === false">
+        <a (click)="onClick($event)">
+          <img src="../../../assets/icons/star.svg" />
+        </a>
+      </ng-container>
+      <ng-container *ngIf="isWishListed === true">
+        <a>
+          <img src="../../../assets/icons/Path 28.svg" />
+        </a>
+      </ng-container>
+    </div>
     <div class="price">
       <span
         >Rs{{
@@ -48,7 +50,16 @@
     >
       ADD TO CART
     </button>
-    <div class="details-button" [routerLink]="['/course', course.id]">
+    <div class="delete-button" *ngIf="isWishList === true">
+      <a (click)="onDelete()"
+        ><img src="../../../assets/icons/noun_Delete_3715928.svg"
+      /></a>
+    </div>
+    <div
+      class="details-button"
+      [routerLink]="['/course', course.id]"
+      *ngIf="isWishList === false"
+    >
       <a href="#" routerLink="course/{{ course.id }}">
         <img src="../../../assets/icons/arrow.svg" alt="" />
       </a>

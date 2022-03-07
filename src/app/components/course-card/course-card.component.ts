@@ -13,6 +13,9 @@ export class CourseCardComponent implements OnInit {
   wishListedCourses = new Array();
   isWishListed = false;
 
+  @Input() isWishList = false;
+  @Input() isCart = null;
+
   constructor(dataService: DataService) {
     this.dataService = dataService;
   }
@@ -38,7 +41,10 @@ export class CourseCardComponent implements OnInit {
   }
 
   onClick(e: any) {
-    console.log('ran');
     this.dataService.addToWishList(this.course);
+  }
+
+  onDelete() {
+    this.dataService.removeFromWishList(this.course);
   }
 }

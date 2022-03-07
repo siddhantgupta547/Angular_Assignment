@@ -15,14 +15,14 @@
       <div
         class="no-courses"
         *ngIf="CartCourses.length <= 0"
-        style="overflow: hidden; border: 1px solid #e0e0e0"
+        style="overflow: hidden; border: 1px solid #e0e0e0; padding: 10px"
       >
         <p><em>No Courses in Cart!</em></p>
       </div>
       <div
         class="course-container"
         *ngIf="CartCourses.length > 0"
-        style="border: 1px solid #e0e0e0"
+        [ngClass]="CartCourses.length > 5 ? 'scroll' : ''"
       >
         <app-course-card
           *ngFor="let course of CartCourses"

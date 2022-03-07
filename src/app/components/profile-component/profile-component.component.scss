@@ -3,6 +3,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
   font-size: small;
+  .form-control {
+    background-color: #f6f8ff;
+  }
 
   .right {
     width: 1000px;

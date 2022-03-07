@@ -29,4 +29,8 @@ export class CourseDetailsComponent implements OnInit {
   addToCart() {
     this.dataService.addToCart(this.course);
   }
+
+  addToWishList() {
+    this.dataService.addToWishList(this.course);
+  }
 }

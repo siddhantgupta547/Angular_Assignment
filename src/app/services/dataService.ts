@@ -7,6 +7,7 @@ export class DataService {
   paginatedCoursesForPage = [];
   cart = new Array();
   totalCost = 0;
+  savedAmount = 0;
   wishListedCourses = new Array();
 
   constructor() {}
@@ -328,15 +329,22 @@ export class DataService {
 
   getTotalCost() {
     let totalPrice = 0;
+    let savedAmount = 0;
     for (let cartItem of this.cart) {
-      if (cartItem.discountedPrice != null)
+      if (cartItem.discountedPrice != null) {
         totalPrice += parseInt(cartItem.discountedPrice);
-      else {
+        savedAmount += cartItem.actualPrice - cartItem.discountedPrice;
+      } else {
         totalPrice += parseInt(cartItem.actualPrice);
       }
     }
+    this.savedAmount = savedAmount;
     this.totalCost = totalPrice;
     return this.totalCost;
+  }
+
+  getSavedAmount() {
+    return this.savedAmount;
   }
 
   addToCart(course: any) {
