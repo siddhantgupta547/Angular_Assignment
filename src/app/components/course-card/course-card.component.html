@@ -32,14 +32,18 @@
       <span
         >Rs{{
           course.discountedPrice != null
-            ? course.discountedPrice
-            : course.actualPrice
+            ? course.discountedPrice + ".00"
+            : course.actualPrice + ".00"
         }}/-</span
       >
     </div>
     <div class="discounted-price">
       <s>
-        Rs{{ course.discountedPrice != null ? course.actualPrice : "-" }}/-
+        Rs{{
+          course.discountedPrice != null
+            ? course.actualPrice + ".00"
+            : course.actualPrice + ".99"
+        }}/-
       </s>
     </div>
   </div>

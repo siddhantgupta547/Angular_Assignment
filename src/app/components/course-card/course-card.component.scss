@@ -15,6 +15,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 13px;
+  min-width: 880px;
 
   .first {
     height: 100%;
@@ -57,7 +58,7 @@
     @include flex();
     flex-direction: row;
     justify-content: space-evenly;
-    width: 200px;
+    width: 220px;
 
     .price {
       font-weight: 800;
